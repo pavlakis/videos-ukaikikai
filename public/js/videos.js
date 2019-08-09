@@ -8,7 +8,6 @@ function fetchCollection() {
     .done(function( data ) {
         var videoCollection = JSON.parse(data);
         videoCollection.forEach(function( video ) {
-            // appendTemplate();
             displayVideo(video);
         });
     });
