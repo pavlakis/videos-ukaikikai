@@ -8,14 +8,14 @@ function fetchCollection() {
     .done(function( data ) {
         var videoCollection = JSON.parse(data);
         videoCollection.forEach(function( video ) {
+            // appendTemplate();
             displayVideo(video);
         });
     });
 }
 
 function displayVideo(video) {
-    var $hideElement = $('.row .hide');
-    console.log($hideElement.length);
+    var $hideElement = $('.video .hide');
     if ($hideElement.length !== 0) {
         var $element = $($hideElement[0]);
         $element.find('.card').addClass(rowBg[toggle]);
@@ -31,9 +31,7 @@ function displayVideo(video) {
 }
 
 function appendTemplate() {
-    var $template = $('#template .row');
-    $template.insertBefore('footer');
-    var $row = $('.hide');
-    $row.removeClass('hide');
-    $row.find('.col-sm-6').addClass('hide');
+    var $template = $('#template .template-container').clone();
+    $template.addClass('video');
+    $template.insertBefore($('footer'), null);
 }
