@@ -113,53 +113,13 @@
     </div>
   </div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<script src="js/videos.js" integrity="Z3dRkjDk84dpvQcwIu0G7Bl+29Z21otEJteeoUEibkU" crossorigin="anonymous"></script>
 <script>
-  var toggle = 0;
-  var rowBg = ['bg-light', 'text-white bg-secondary'];
-  var videoCollection = [
-    {
-      'title': 'Summer School 2015',
-      'player': 'https://player.vimeo.com/video/347684486'
-    },
-    {
-      'title': 'Summer School 2005',
-      'player': 'https://player.vimeo.com/video/337256268'
-    },
-  ];
   $(document).ready(function(){
-    videoCollection.forEach(function( video ) {
-      console.log(video);
-      displayVideo(video);
-    });
+    fetchCollection();
   });
-
-  function displayVideo(video) {
-    var $hideElement = $('.row .hide');
-    console.log($hideElement.length);
-    if ($hideElement.length !== 0) {
-      var $element = $($hideElement[0]);
-      $element.find('.card').addClass(rowBg[toggle]);
-      $element.find('.card-title').html(video.title);
-      $element.find('iframe').attr('src', video.player);
-      $element.removeClass('hide');
-      toggle = toggle === 0 ? 1 : 0;
-      return;
-    }
-
-    appendTemplate();
-    return displayVideo(video);
-  }
-
-  function appendTemplate() {
-    var $template = $('#template .row');
-    // $('body').insertBefore($template);
-    $template.insertBefore('footer');
-    var $row = $('.hide');
-    $row.removeClass('hide');
-    $row.find('.col-sm-6').addClass('hide');
-  }
 </script>
 </body>
 </html>
