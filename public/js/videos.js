@@ -1,15 +1,18 @@
 var toggle = 0;
 var rowBg = ['bg-light', 'text-white bg-secondary'];
+var videoCollection;
 
 function fetchCollection() {
     $.ajax({
         url: "https://raw.githubusercontent.com/pavlakis/api-ukaikikai/master/videos.json"
     })
     .done(function( data ) {
-        var videoCollection = JSON.parse(data);
-        videoCollection.forEach(function( video ) {
-            displayVideo(video);
-        });
+        videoCollection = JSON.parse(data);
+        for (let [year, yearVideos] of Object.entries(videoCollection)) {
+            yearVideos.forEach(function(video){
+                displayVideo(video);
+            });
+        }
     });
 }
 
