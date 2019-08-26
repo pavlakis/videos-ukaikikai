@@ -1,6 +1,6 @@
-var toggle = 0;
-var rowBg = ['bg-light', 'text-white bg-secondary'];
-var videoCollection;
+let toggle = 0;
+let rowBg = ['bg-light', 'text-white bg-secondary'];
+let videoCollection;
 
 function fetchCollection() {
     $.ajax({
@@ -17,9 +17,9 @@ function fetchCollection() {
 }
 
 function displayVideo(video) {
-    var $hideElement = $('.video .hide');
+    let $hideElement = $('.video .hide');
     if ($hideElement.length !== 0) {
-        var $element = $($hideElement[0]);
+        let $element = $($hideElement[0]);
         $element.find('.card').addClass(rowBg[toggle]);
         $element.find('.card-title').html(video.title);
         $element.find('iframe').attr('src', video.player);
@@ -37,3 +37,7 @@ function appendTemplate() {
     $template.addClass('video');
     $template.insertBefore($('footer'), null);
 }
+
+$(document).ready(function(){
+    fetchCollection();
+});
