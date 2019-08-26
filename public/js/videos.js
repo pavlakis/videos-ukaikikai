@@ -21,7 +21,8 @@ function displayVideo(video) {
     if ($hideElement.length !== 0) {
         let $element = $($hideElement[0]);
         $element.find('.card').addClass(rowBg[toggle]);
-        $element.find('.card-title').html(video.title);
+        $element.find('.card-header').html(video.title);
+        $element.find('.card-title').html(video.description);
         $element.find('iframe').attr('src', video.player);
         $element.removeClass('hide');
         toggle = toggle === 0 ? 1 : 0;
