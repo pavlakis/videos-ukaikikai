@@ -37,11 +37,24 @@
 
 </head>
 <body>
-<nav class="site-header sticky-top py-1">
-  <div class="container d-flex flex-column flex-md-row justify-content-center">
-    <a class="py-2" href="#">
-      <img src="https://ukaikikai.org.uk/images/uka/logo/UKA-white-100.png" />
-    </a>
+<nav class="site-header navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="py-2" href="#">
+    <img src="https://ukaikikai.org.uk/images/uka/logo/UKA-white-100.png" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Videos by year
+        </a>
+        <div id="year-list" class="dropdown-menu badge-dark" aria-labelledby="navbarDropdown">
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>
 
@@ -120,6 +133,6 @@
 </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-<script src="js/videos.js" integrity="sha384-woGB14q+dkCMHFGGj9ZS9Nd3dtaesXAcYh3xLAeJBdjeeLtGe2vyfn4X4cjFhZLM" crossorigin="anonymous"></script>
+<script src="js/videos.js" integrity="sha384-VWD4/+Izp5jg2zhl/WPslnlejpFskBVQJOTl7SEOzsnvnAlC2nn/6Nv2xL3Zv+Ug" crossorigin="anonymous"></script>
 </body>
 </html>
