@@ -86,7 +86,7 @@ function filterEventHandler() {
 
 function addClearEventHandler() {
     $('#clear').on('click', function(e){
-        $('#year-list').val(null).trigger('change');
+        $('#year-list').val("").trigger("change.select2");
         $(this).off();
         displayAll();
     });
