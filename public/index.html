@@ -10,55 +10,31 @@
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous" />
 
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    .hide, .hide-template {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
   <!-- Custom styles for this template -->
-  <link href="css/product.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
 
 </head>
 <body>
-<nav class="site-header navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="py-2" href="#">
-    <img src="https://ukaikikai.org.uk/images/uka/logo/UKA-white-100.png" />
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="site-header navbar navbar-dark bg-dark">
+  <div class="d-flex justify-content-start">
+    <a class="py-2" href="#">
+      <img src="https://ukaikikai.org.uk/images/uka/logo/UKA-white-100.png" />
+    </a>
+  </div>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Videos by year
-        </a>
-        <div id="year-list" class="dropdown-menu badge-dark" aria-labelledby="navbarDropdown">
-        </div>
-      </li>
-    </ul>
+
+  <div class="d-flex justify-content-end">
+    <select class="form-control mr-sm-2" id="year-list" name="year-list">
+      <option></option>
+    </select>
+    <button id="filter" class="btn btn-outline-success my-2 my-sm-0">Filter</button>
+    <button id="clear" class="btn btn-outline-warning my-2 my-sm-0 ml-2">Clear</button>
   </div>
 </nav>
 
-<div class="row justify-content-center">
+<div id="top-video" class="row justify-content-center">
   <div class="card mb-3">
     <div class="card-body">
       <h5 class="card-title"></h5>
@@ -133,6 +109,7 @@
 </footer>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-<script src="js/videos.js" integrity="sha384-VWD4/+Izp5jg2zhl/WPslnlejpFskBVQJOTl7SEOzsnvnAlC2nn/6Nv2xL3Zv+Ug" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js" integrity="sha256-d/edyIFneUo3SvmaFnf96hRcVBcyaOy96iMkPez1kaU=" crossorigin="anonymous"></script>
+<script src="js/videos.js" crossorigin="anonymous"></script>
 </body>
 </html>
