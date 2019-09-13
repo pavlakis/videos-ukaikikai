@@ -1,6 +1,7 @@
 let toggle = 0;
 let rowBg = ['bg-light', 'text-white bg-secondary'];
 let videoCollection;
+let years = [];
 
 function fetchCollection() {
     $.ajax({
@@ -9,12 +10,20 @@ function fetchCollection() {
     .done(function( data ) {
         videoCollection = JSON.parse(data);
         for (let [year, yearVideos] of Object.entries(videoCollection)) {
-            listYears(year);
+            years.push({'id': year, 'text': year});
             yearVideos.forEach(function(video){
                 displayVideo(video);
             });
         }
-        dropDownItemsEventHandler();
+        loadYearList();
+        filterEventHandler();
+    });
+}
+
+function loadYearList() {
+    $('#year-list').select2({
+        placeholder: 'Select a year',
+        data: years
     });
 }
 
@@ -44,22 +53,52 @@ function appendTemplate() {
 function displayByYear(year) {
     let $allVideos = $('.video');
     $allVideos.remove();
+    $('#top-video').hide();
 
     videoCollection[year].forEach(function(video){
         displayVideo(video);
     });
 }
 
-function listYears(year) {
-    $('#year-list').append( '<a class="dropdown-item badge-dark" href="#">' + year + '</a>' );
+function displayAll() {
+    $('#top-video').show();
+    let $allVideos = $('.video');
+    $allVideos.remove();
 
+    for (let [year, yearVideos] of Object.entries(videoCollection)) {
+        yearVideos.forEach(function(video){
+            displayVideo(video);
+        });
+    }
 }
 
-function dropDownItemsEventHandler() {
-    $('.dropdown-item').on('click', function(e){
-        e.preventDefault();
-       displayByYear($(this).text());
+function filterEventHandler() {
+    $('#filter').on('click', function(e){
+        if (!hasSelection()) {
+            return;
+        }
+
+        addClearEventHandler();
+        let $yearList = $('#year-list').val();
+        displayByYear($yearList);
     });
+}
+
+function addClearEventHandler() {
+    $('#clear').on('click', function(e){
+        $('#year-list').empty().trigger('change');
+        $(this).off();
+        displayAll();
+    });
+}
+
+function hasSelection() {
+    let $yearList = $('#year-list').val();
+    if ($yearList === '' || $yearList === null) {
+        return false;
+    }
+
+    return true;
 }
 
 $(document).ready(function(){
